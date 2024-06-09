@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examendz - Téléchargez les examens et devoirs en Algérie</title>
+    <meta name="description"
+        content="Téléchargez des sujets d'examen, des devoirs et des livres pour les niveaux moyenne et lycée en Algérie.gratuites et accessibles pour tous.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Examendz</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#exams">Sujets d'Examen</a></li>
+                <li><a href="#homework">Devoirs</a></li>
+                <li><a href="#books">Livres</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Bienvenue sur Examendz</h2>
+            <p><strong>Téléchargez</strong> gratuitement des <strong>sujets</strong> d'<strong>examen</strong>, des
+                <strong>devoirs</strong> et des <strong>livres</strong> pour les niveaux <strong>moyenne</strong> et
+                <strong>lycée</strong> en Algérie. Notre plateforme offre un accès facile et rapide à une vaste gamme de
+                ressources éducatives, vous permettant de vous préparer efficacement pour vos <strong>examens</strong>
+                et d'améliorer vos performances scolaires. Que vous soyez étudiant, parent ou enseignant, Examendz est
+                votre allié dans la réussite éducative.</p>
+
+        </section>
+        <section id="exams">
+            <h2>Sujets d'Examen</h2>
+            <!-- Liens vers les sujets d'examen -->
+        </section>
+        <section id="homework">
+            <h2>Devoirs</h2>
+            <!-- Liens vers les devoirs -->
+        </section>
+        <section id="books">
+            <h2>Livres</h2>
+            <!-- Liens vers les livres -->
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>suivez-nous sur les réseaux sociaux</a>.
+            </p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/examendz" target="_blank">
+                    <img src="images/social/facebook.png" alt="page Facebook">
+                </a>
+                <a href="https://www.instagram.com/examendz" target="_blank">
+                    <img src="images/social/instagram.png" alt="compte Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@examendz" target="_blank">
+                    <img src="images/social/tiktok.png" alt="compte TikTok">
+                </a>
+            </div>
+            <p>Pour toute question, veuillez nous contacter à <a href="mailto:info@examendz.com">info@examendz.com</a>.
+            </p>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Examendz. Tous droits réservés.</p>
+    </footer>
+    <script>
+        // Lazy load images
+        document.addEventListener("DOMContentLoaded", function () {
+            var lazyloadImages = document.querySelectorAll("img.lazy");
+            if ("IntersectionObserver" in window) {
+                let lazyloadObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            let image = entry.target;
+                            image.src = image.dataset.src;
+                            image.classList.remove("lazy");
+                            lazyloadObserver.unobserve(image);
+                        }
+                    });
+                });
+
+                lazyloadImages.forEach(function (image) {
+                    lazyloadObserver.observe(image);
+                });
+            } else {
+                // Fallback for older browsers
+                let lazyloadThrottleTimeout;
+                function lazyload() {
+                    if (lazyloadThrottleTimeout) {
+                        clearTimeout(lazyloadThrottleTimeout);
+                    }
+
+                    lazyloadThrottleTimeout = setTimeout(function () {
+                        let scrollTop = window.pageYOffset;
+                        lazyloadImages.forEach(function (img) {
+                            if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                                img.src = img.dataset.src;
+                                img.classList.remove('lazy');
+                            }
+                        });
+                        if (lazyloadImages.length == 0) {
+                            document.removeEventListener("scroll", lazyload);
+                            window.removeEventListener("resize", lazyload);
+                            window.removeEventListener("orientationChange", lazyload);
+                        }
+                    }, 20);
+                }
+
+                document.addEventListener("scroll", lazyload);
+                window.addEventListener("resize", lazyload);
+                window.addEventListener("orientationChange", lazyload);
+            }
+        });
+    </script>
+</body>
+
+</html>
