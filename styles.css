@@ -63,6 +63,7 @@ section h2 {
     position: relative;
     padding: 20px;
     border: 1px solid #000; /* Adjust the border width and color as needed */
+    margin-bottom: 60px;
   }
   
   #contact h2 {
@@ -121,4 +122,26 @@ footer {
 .social-icons img {
   width: 40px; /* Ajustez la taille des icônes selon vos besoins */
   height: 40px;
+}
+
+/* Back to Top Button */
+#backToTop {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#backToTop img{filter: invert(100%);}
+
+#backToTop:hover {
+  background-color: #555;
 }
