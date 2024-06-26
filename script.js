@@ -61,3 +61,18 @@ window.addEventListener("scroll", function () {
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    function trimDescriptions() {
+        const examCards = document.querySelectorAll('.exam-card p');
+        
+        examCards.forEach(function(description) {
+            const fullText = description.textContent;
+            if (fullText.length > 100) {
+                description.textContent = fullText.substring(0, 100) + '...';
+            }
+        });
+    }
+
+    trimDescriptions();
+});
