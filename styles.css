@@ -59,14 +59,14 @@ section h2 {
 }
 
 
-#contact,#exams {
+#contact,#exams,#homework {
     position: relative;
     padding: 20px;
     border: 1px solid #000; /* Adjust the border width and color as needed */
     margin-bottom: 60px;
   }
   
-  #contact h2,#exams h2 {
+  #contact h2,#exams h2,#homework h2 {
     position: absolute;
     top: -21px;
     left: 50%;
